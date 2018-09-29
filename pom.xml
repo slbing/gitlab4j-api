@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.gitlab4j</groupId>
@@ -11,14 +12,27 @@
 	<url>https://github.com/gmessner/gitlab4j-api</url>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		<!-- <repository>
+			<id>releases</id>
+			<name>Nexus Release Repository</name>
+			<url>http://mc.ali.bjol.bigdata.udsp.com:8081/repository/maven-releases/</url>
 		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://mc.ali.bjol.bigdata.udsp.com:8081/repository/maven-snapshots/</url>
+		</snapshotRepository> -->
+		<repository>
+			<id>releases</id>
+			<name>Nexus Release Repository</name>
+			<url>http://www.maplecloudy.com:9083/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://www.maplecloudy.com:9083/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		
 	</distributionManagement>
 
 	<licenses>
@@ -38,8 +52,8 @@
 	</developers>
 
 	<properties>
-        <java.source.version>1.8</java.source.version>
-        <java.target.version>1.8</java.target.version>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
 		<jersey.version>2.27</jersey.version>
 		<jackson.version>2.9.6</jackson.version>
 		<javaServlet.version>4.0.1</javaServlet.version>
@@ -97,22 +111,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
