@@ -974,4 +974,12 @@ public class GitLabApiClient {
     
     return (true);
   }
+  
+  public void close() {
+    try {
+      if (apiClient != null) apiClient.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
