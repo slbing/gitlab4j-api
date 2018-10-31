@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class AbstractUser {
+@JsonIgnoreProperties(ignoreUnknown = true)
 
     private String avatarUrl;
     private String bio;

@@ -430,6 +430,24 @@ public class RepositoryApi extends AbstractApi {
                 "projects", projectId, "repository", "archive");
         return (response.readEntity(InputStream.class));
     }
+    
+    /**
+     * Get an archive of the complete repository by SHA (optional).
+     *
+     * GET /projects/:id/repository/archive
+     *
+     * @param projectId the ID of the project
+     * @param sha the SHA of the archive to get
+     * @return an input stream that can be used to save as a file
+     * or to read the content of the archive
+     * @throws GitLabApiException if any exception occurs
+     */
+    public Response getRepositoryArchiveResp(Integer projectId, String sha) throws GitLabApiException {
+        Form formData = new GitLabApiForm().withParam("sha", sha);
+        return getWithAccepts(Response.Status.OK, formData.asMap(), MediaType.MEDIA_TYPE_WILDCARD,
+                "projects", projectId, "repository", "archive");
+        
+    }
 
     /**
      * Get an archive of the complete repository by SHA (optional).
